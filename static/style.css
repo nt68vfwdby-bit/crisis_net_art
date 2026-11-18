@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Courier New", Courier, ui-monospace, Menlo, Monaco, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 24px;
+}
+
+/* Чёрный экран для этапов 6, 7 и 8 */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+}
+
+/* Блок системной ошибки (Этапы 1–5) */
+.error-block {
+    border-left: 2px solid #000000;
+    padding-left: 16px;
+}
+
+.error-code {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    opacity: 0.75;
+}
+
+.sys-msg {
+    font-size: 15px;
+}
+
+/* Спокойные сообщения (Этапы 8 и 11) */
+.calm-msg {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Анимация букв (Этапы 3–5) */
+.char {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.5s ease;
+    cursor: default;
+}
+
+@keyframes tremor {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-1.5px, 1.5px); }
+    50% { transform: translate(1.5px, -1px); }
+    75% { transform: translate(-1px, -1.5px); }
+    100% { transform: translate(1px, 1px); }
+}
+
+.tremble {
+    animation: tremor 0.15s infinite;
+}
+
+.heavy-fall {
+    transform: translateY(45vh) rotate(18deg) !important;
+    opacity: 0.25;
+    transition: transform 6s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 6s ease !important;
+}
+
+/* Этапы 9–10: Заземление и растворяющийся ввод */
+.grounding-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    border-left: 2px solid #000000;
+    padding-left: 16px;
+}
+
+.question {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.ghost-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000000;
+    background: transparent;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 6px 0;
+    text-align: left;
+    outline: none;
+    color: #000000;
+    transition: opacity 2.5s ease, filter 2.5s ease;
+}
+
+.ghost-input.dissolving {
+    opacity: 0;
+    filter: blur(4px);
+}
+
+.hint {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+/* Этап 12: Контакты помощи */
+.helpline-box {
+    border-left: 2px solid #000000;
+    padding-left: 16px;
+    font-size: 15px;
+}
+
+.helpline-intro {
+    margin-bottom: 16px;
+}
+
+.helpline-list {
+    list-style-type: none;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.helpline-list li {
+    margin-bottom: 6px;
+}
+
+.helpline-list a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.helpline-outro {
+    font-weight: bold;
+}
+

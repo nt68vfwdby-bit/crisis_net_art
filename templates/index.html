@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="stage-{{ stage }} {% if stage >= 6 and stage <= 8 %}dark-mode{% endif %}">
+
+    <main class="container">
+        {% if stage == 1 %}
+            <p class="sys-msg font-sans">Something seems to have gone wrong; please reload the page.</p>
+
+        {% elif stage == 2 %}
+            <p class="sys-msg font-serif">It looks like something went wrong again; please reload the page.</p>
+
+        {% elif stage == 3 %}
+            <p id="crisis-text" class="sys-msg font-mono">It looks like something went wrong again; please reload the page.</p>
+
+        {% elif stage == 4 %}
+            <p id="crisis-text" class="sys-msg font-mono">It looks like something went wrong again; please reload the page.</p>
+
+        {% elif stage == 5 %}
+            <p id="crisis-text" class="sys-msg font-mono">It looks like something went wrong again; please reload the page.</p>
+
+        {% elif stage == 6 or stage == 7 %}
+
+        {% elif stage == 8 %}
+            <p class="calm-msg font-serif">It looks like things are tough for you right now.</p>
+
+        {% elif stage == 9 %}
+            <div class="grounding-box font-serif">
+                <p class="question">Are your feet touching the floor right now? Do you feel the support?</p>
+                <input type="text" id="dissolve-input" class="ghost-input" placeholder="Type a short answer here..." autocomplete="off">
+                <p class="hint font-sans">Please refresh the page after answering (your answers will not be saved).</p>
+            </div>
+
+        {% elif stage == 10 %}
+            <div class="grounding-box font-serif">
+                <p class="question">Please list three objects you see around you.</p>
+                <input type="text" id="dissolve-input" class="ghost-input" placeholder="Type here..." autocomplete="off">
+                <p class="hint font-sans">Then reload the page (your answers will not be saved).</p>
+            </div>
+
+        {% elif stage == 11 %}
+            <p class="calm-msg font-serif">Sometimes it’s hard to reload the page all on your own.</p>
+
+        {% elif stage >= 12 %}
+            <div class="helpline-box font-serif">
+                <p class="helpline-intro">Please call one of your loved ones or reach out using these contacts:</p>
+                <ul class="helpline-list font-mono">
+                    <li>Belarus — <strong>133</strong></li>
+                    <li>Ukraine — <strong>7333</strong></li>
+                    <li>Russia — <strong>8-800-333-44-34</strong></li>
+                    <li>European Union — <strong>116 123</strong></li>
+                    <li>Germany — <strong>0800 111 0 111</strong></li>
+                    <li>Poland — <strong>800 70 2222</strong></li>
+                    <li>Lithuania — <strong>116 123</strong></li>
+                    <li>Latvia — <strong>116 123</strong></li>
+                    <li>United Kingdom — <strong>116 123</strong></li>
+                    <li>International (Online Directory) — <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a></li>
+                </ul>
+                <p class="helpline-outro">They will help you.</p>
+            </div>
+        {% endif %}
+    </main>
+
+    <script>
+        const CURRENT_STAGE = {{ stage }};
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
